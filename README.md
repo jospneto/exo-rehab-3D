@@ -461,4 +461,8 @@ ou
 
 **Versão:** 3.0 | **Data:** Novembro 2025 | **Status:** Production Ready ✅
 
+### Deploy 
+
+**Link da vercel** - https://exo-rehab-3d.vercel.app/
+
 </div>
