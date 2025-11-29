@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Gradientes -->
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34d399;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="bgGrad" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0e1a;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Filtro de brilho -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Fundo com gradiente radial -->
+  <circle cx="50" cy="50" r="50" fill="url(#bgGrad)"/>
+  
+  <!-- Grid tech de fundo -->
+  <g opacity="0.08" stroke="#6366f1" stroke-width="0.5" fill="none">
+    <circle cx="50" cy="50" r="35"/>
+    <circle cx="50" cy="50" r="25"/>
+    <circle cx="50" cy="50" r="15"/>
+    <line x1="50" y1="15" x2="50" y2="85"/>
+    <line x1="15" y1="50" x2="85" y2="50"/>
+  </g>
+  
+  <!-- Exoesqueleto principal -->
+  <g transform="translate(25, 25)">
+    <!-- Base/Tronco -->
+    <g opacity="0.6">
+      <rect x="20" y="45" width="10" height="20" rx="2" fill="#475569"/>
+    </g>
+    
+    <!-- Articulação do ombro (base) -->
+    <circle cx="25" cy="45" r="6" fill="url(#mainGrad)" filter="url(#glow)"/>
+    <circle cx="25" cy="45" r="3" fill="#e2e8f0"/>
+    <circle cx="25" cy="45" r="1.5" fill="#1e293b"/>
+    
+    <!-- Link 1 - Braço superior com estrutura dupla -->
+    <g>
+      <!-- Barra principal -->
+      <rect x="24" y="25" width="4" height="22" rx="2" fill="url(#mainGrad)" transform="rotate(-40 26 36)"/>
+      <!-- Estrutura de suporte -->
+      <rect x="26" y="27" width="2" height="20" rx="1" fill="#4f46e5" opacity="0.6" transform="rotate(-40 27 37)"/>
+      <!-- Parafusos decorativos -->
+      <circle cx="30" cy="40" r="1" fill="#e2e8f0" opacity="0.8"/>
+      <circle cx="35" cy="32" r="1" fill="#e2e8f0" opacity="0.8"/>
+    </g>
+    
+    <!-- Articulação do cotovelo -->
+    <g>
+      <circle cx="40" cy="25" r="7" fill="url(#mainGrad)" filter="url(#glow)"/>
+      <circle cx="40" cy="25" r="5" fill="#1e293b" opacity="0.3"/>
+      <circle cx="40" cy="25" r="3" fill="#e2e8f0"/>
+      <circle cx="40" cy="25" r="1.5" fill="#6366f1"/>
+      <!-- Detalhes técnicos -->
+      <path d="M 37,23 L 43,23 M 37,27 L 43,27" stroke="#94a3b8" stroke-width="0.5" opacity="0.6"/>
+    </g>
+    
+    <!-- Link 2 - Antebraço com detalhes -->
+    <g>
+      <!-- Barra principal -->
+      <rect x="39" y="5" width="4" height="22" rx="2" fill="url(#mainGrad)" transform="rotate(-30 41 16)"/>
+      <!-- Linha de energia/sinal -->
+      <path d="M 42,24 L 47,18 L 52,12" stroke="url(#accentGrad)" stroke-width="1.5" fill="none" opacity="0.8" stroke-linecap="round"/>
+      <!-- Estrutura lateral -->
+      <rect x="41" y="7" width="1.5" height="18" rx="0.5" fill="#8b5cf6" opacity="0.5" transform="rotate(-30 41.75 16)"/>
+    </g>
+    
+    <!-- End Effector / Mão -->
+    <g>
+      <circle cx="53" cy="10" r="5" fill="url(#accentGrad)" filter="url(#glow)"/>
+      <circle cx="53" cy="10" r="2.5" fill="#e2e8f0"/>
+      <!-- Indicador de ponto objetivo -->
+      <circle cx="53" cy="10" r="6.5" stroke="url(#accentGrad)" stroke-width="1" fill="none" opacity="0.5"/>
+      <circle cx="53" cy="10" r="8" stroke="url(#accentGrad)" stroke-width="0.5" fill="none" opacity="0.3"/>
+    </g>
+    
+    <!-- Trajetória pontilhada (A* path) -->
+    <path d="M 25,45 Q 35,30 53,10" stroke="#6366f1" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="2,2"/>
+    
+    <!-- Indicadores de movimento -->
+    <g opacity="0.6">
+      <path d="M 22,48 Q 20,46 22,44" stroke="#10b981" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M 37,28 Q 35,26 37,24" stroke="#10b981" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+  
+  <!-- Badge "3D" no canto -->
+  <g transform="translate(70, 72)">
+    <rect x="0" y="0" width="20" height="12" rx="3" fill="#1e293b" opacity="0.9"/>
+    <text x="10" y="9" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="url(#accentGrad)" text-anchor="middle">3D</text>
+  </g>
+  
+  <!-- Símbolo médico/reabilitação (cruz estilizada) -->
+  <g transform="translate(10, 10)" opacity="0.7">
+    <circle cx="5" cy="5" r="6" fill="#0f172a" opacity="0.8"/>
+    <rect x="4" y="2" width="2" height="6" rx="0.5" fill="url(#accentGrad)"/>
+    <rect x="2" y="4" width="6" height="2" rx="0.5" fill="url(#accentGrad)"/>
+  </g>
+  
+  <!-- Borda circular sutil -->
+  <circle cx="50" cy="50" r="48" stroke="url(#mainGrad)" stroke-width="1.5" fill="none" opacity="0.2"/>
+</svg>
+
